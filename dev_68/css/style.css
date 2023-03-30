@@ -63,6 +63,7 @@ header a {
 
 #about p {
     width: 741px;
+    font-size: 20px;
 }
 
 #about_space{
@@ -150,6 +151,7 @@ footer h5 {
     padding-top: 70px;
     margin-left: 40px;
     color: #8D8D8D;
+    font-weight: normal;
 }
 
 .container {
@@ -232,6 +234,10 @@ footer h5 {
 
 #languages{
     margin-top: 40px;
+}
+
+#languages ul{
+    font-size: 20px;
 }
 
 #choise{
