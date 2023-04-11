@@ -23,6 +23,11 @@ header {
     justify-content: center;
 }
 
+ul{
+    display: flex;
+    list-style: none;
+}
+
 #red_dot1 {
     display: inline-block;
     position: absolute;
@@ -433,11 +438,10 @@ text p main {
     transition: transform 0.2s ease-in-out;
 }
 
-
 #layout3_side_right {
     float: right;
     width: 104px;
-    height: 995px;
+    height: 100vh;
     background-color: #1847EF4D;
     display: flex;
     position: relative;
@@ -455,7 +459,7 @@ text p main {
 #layout3_side_left {
     float: left;
     width: 372px;
-    height: 995px;
+    height: 100vh;
     background-color: #E5E5E5;
     display: flex;
     position: relative;
