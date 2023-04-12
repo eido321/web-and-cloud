@@ -38,6 +38,7 @@ ul{
     top: -12px;
     left: 29px;
     transition: transform 0.2s ease-in-out;
+    pointer-events: none;
 }
 
 nav a {
@@ -293,7 +294,7 @@ text p main {
     top: -12px;
     left: 53px;
     transition: transform 0.2s ease-in-out;
-
+    pointer-events: none;
 }
 
 #layout2 {
@@ -411,20 +412,6 @@ text p main {
     background-color: #000000;
 }
 
-/* #footer_index{
-    background-color: #000000;
-    height: 41px;
-    width: 100%;
-    margin-top:860px;
-}
-
-#footer_layout2{
-    background-color: #000000;
-    height: 41px;
-    width: 100%;
-    margin-top:1860px;
-} */
-
 /*layout 3 */
 #red_dot3 {
     display: inline-block;
@@ -436,6 +423,7 @@ text p main {
     top: -12px;
     left: 100px;
     transition: transform 0.2s ease-in-out;
+    pointer-events: none;
 }
 
 #layout3_side_right {
