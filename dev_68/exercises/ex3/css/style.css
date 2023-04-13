@@ -494,3 +494,24 @@ text p main {
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 1000px){
+    #layout3_side_right {
+        display: none;
+    }
+    
+    #layout3_side_left {
+        float: none;
+        
+        width:100%;
+        height:105px;
+        margin-bottom: 1364px;
+    }
+
+    #layout3_side_left nav {
+        position: absolute;
+        left: 302px;
+        top: 45px;
+    }
+
+}
