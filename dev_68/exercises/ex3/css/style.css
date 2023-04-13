@@ -502,8 +502,7 @@ text p main {
     
     #layout3_side_left {
         float: none;
-        
-        width:100%;
+        width:767px;
         height:105px;
         margin-bottom: 1364px;
     }
@@ -512,6 +511,19 @@ text p main {
         position: absolute;
         left: 302px;
         top: 45px;
+    }
+
+    header{
+        position: relative;
+        width: 767px;
+    }
+
+    #above_footer{
+        width:767px;
+    }
+
+    #footer_layout3{
+        width: 767px;
     }
 
 }
