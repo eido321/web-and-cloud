@@ -495,7 +495,7 @@ text p main {
     align-items: center;
 }
 
-@media (max-width: 1000px){
+@media (max-width: 767px){
     #layout3_side_right {
         display: none;
     }
