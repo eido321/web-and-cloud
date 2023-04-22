@@ -37,7 +37,6 @@ ul{
     border-radius: 50%;
     top: -12px;
     left: 29px;
-    transition: transform 0.2s ease-in-out;
     pointer-events: none;
 }
 
@@ -45,23 +44,10 @@ nav a {
     display: flex;
     position: relative;
     justify-content: center;
-    transition: font-size 0.2s ease-in-out;
 }
 
 nav a:hover {
-    font-size: 30px;
-}
-
-nav a:hover #red_dot1 {
-    transform: translateX(7px);
-}
-
-nav a:hover #red_dot2 {
-    transform: translateX(13px);
-}
-
-nav a:hover #red_dot3 {
-    transform: translateX(23px);
+    color: #f72828;
 }
 
 nav {
@@ -293,7 +279,6 @@ text p main {
     border-radius: 50%;
     top: -12px;
     left: 53px;
-    transition: transform 0.2s ease-in-out;
     pointer-events: none;
 }
 
@@ -413,6 +398,25 @@ text p main {
 }
 
 /*layout 3 */
+/* .box{
+    user-select: none;
+} */
+
+#layout3_page{
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    display: flex;
+}
+
+#wrapper{
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 #red_dot3 {
     display: inline-block;
     position: absolute;
@@ -422,14 +426,13 @@ text p main {
     border-radius: 50%;
     top: -12px;
     left: 100px;
-    transition: transform 0.2s ease-in-out;
     pointer-events: none;
 }
 
 #layout3_side_right {
     float: right;
-    width: 104px;
-    height: 100vh;
+    min-width: 104px;
+    min-height: 995px;
     background-color: #1847EF4D;
     display: flex;
     position: relative;
@@ -446,8 +449,8 @@ text p main {
 
 #layout3_side_left {
     float: left;
-    width: 372px;
-    height: 100vh;
+    min-width: 372px;
+    min-height: 995px;
     background-color: #E5E5E5;
     display: flex;
     position: relative;
@@ -495,9 +498,16 @@ text p main {
     align-items: center;
 }
 
+
+
 @media (max-width: 767px){
     #layout3_side_right {
         display: none;
+    }
+
+    #wrapper{
+        margin-left: 0px;
+        margin-right: 0px;
     }
     
     #layout3_side_left {
@@ -515,7 +525,7 @@ text p main {
 
     header{
         position: relative;
-        width: 767px;
+        width: 100%;
     }
 
     #above_footer{
