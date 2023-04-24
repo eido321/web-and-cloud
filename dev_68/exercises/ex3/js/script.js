@@ -1,19 +1,18 @@
 let size = 80
 let delayActive = false;
 let selectedCards = [];
+let counter = 0;
 (() => {
-    let clickBox = $("#layout3_box");
+    let clickBox = $("#layout3Box");
     clickBox.on("click", () => { boxClick() });
     window.addEventListener('resize', () => {
         resizeBox();
     });
 })();
-console.log($(window).width());
-
 class Box {
     constructor() {
-        let leftWidth = $('#layout3_side_left').width();
-        let rightWitdth = $('#layout3_side_right').width();
+        let leftWidth = $('#layout3SideLeft').width();
+        let rightWitdth = $('#layout3SideRight').width();
         let pageWidth = $(window).width();
         let widthWrapper = pageWidth - rightWitdth - leftWidth - 132;
         if ($(window).width() <= 767)
@@ -43,6 +42,7 @@ let match = function () {
         let secondCard = selectedCards[1];
         secondCard.style.color = "white";
         if (firstCard.innerHTML == secondCard.innerHTML) {
+            $('.counter').text(++counter);
             firstCard.style.backgroundColor = "red";
             secondCard.style.backgroundColor = "red";
             secondCard.style.color = "white";
@@ -74,13 +74,20 @@ let boxClick = function () {
         let b = new Box();
         divObj.style.width = b.getWidth();
         divObj.style.height = b.getHeight();
-        divObj.watched = false;
+        divObj.style.backgroundColor = "black";
+        divObj.style.display = "flex";
+        divObj.style.position = "relative";
+        divObj.style.justifyContent = "center";
+        divObj.style.alignItems = "center";
+        divObj.style.fontSize = "64px";
+        divObj.style.userSelect = "none";
+        $(divObj).data('watched', false);
         if (boxes.length % 2 == 0)
             randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
         divObj.innerHTML = `${randomLetter}`;
         if (!delayActive) {
-            divObj.addEventListener("click", () => {
-                divObj.watched = true;
+            $(divObj).on("click", () => {
+                $(divObj).data('watched', true);
                 divObj.style.pointerEvents = "none";
                 divObj.style.color = "white";
                 selectedCards.push(divObj);
@@ -91,34 +98,25 @@ let boxClick = function () {
         wrapperObj.append(divObj);
 
     }
-    $('.box').css({
-        "background-color": "black",
-        "display": "flex",
-        "position": "relative",
-        "justify-content": "center",
-        "align-items": "center",
-        "font-size": "64px",
-        "user-select": "none",
-    })
     let boxes = $(".box");
     boxes.each(function () {
-        // Get a random box to swap with
-        let randomIndex = Math.floor(Math.random() * boxes.length);
-        let randomBox = boxes.eq(randomIndex);
-      
-        // Swap the inner HTML of the current box with the inner HTML of the random box
-        let temp = $(this).html();
-        $(this).html(randomBox.html());
-        randomBox.html(temp);
+        if ($(this).data('watched') == false) {  // Check if the box has been watched before
+            let randomIndex = Math.floor(Math.random() * boxes.length);
+            let randomBox = boxes.eq(randomIndex);
+            if ($(randomBox).data('watched') == false) {  // Check if the random box has been watched before
+                let temp = $(this).html();
+                $(this).html(randomBox.html());
+                randomBox.html(temp);
+            }
+        }
     });
 };
 let resizeBox = function () {
     let boxes = $(".box");
-    let leftWidth = $('#layout3_side_left').width();
-    let rightWitdth = $('#layout3_side_right').width();
+    let leftWidth = $('#layout3SideLeft').width();
+    let rightWitdth = $('#layout3SideRight').width();
     let pageWidth = $(window).width();
     let widthWrapper = pageWidth;
-    console.log(pageWidth);
     if ($(window).width() > 767)
         widthWrapper = widthWrapper - leftWidth - rightWitdth - 132;
     size = 80;

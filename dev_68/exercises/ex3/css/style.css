@@ -28,7 +28,7 @@ ul {
     list-style: none;
 }
 
-#red_dot1 {
+#redDot1 {
     display: inline-block;
     position: absolute;
     width: 14px;
@@ -270,7 +270,7 @@ text p main {
 }
 
 /*layout 2 */
-#red_dot2 {
+#redDot2 {
     display: inline-block;
     position: absolute;
     width: 14px;
@@ -290,7 +290,7 @@ text p main {
     width: calc(100% - 169px);
 }
 
-.layout_box {
+.layoutBox {
     position: absolute;
     width: 457px;
     height: 299px;
@@ -321,23 +321,23 @@ text p main {
     left: 512px;
 }
 
-.layout_box:nth-child(1) {
+.layoutBox:nth-child(1) {
     top: 0;
 }
 
-.layout_box:nth-child(2) {
+.layoutBox:nth-child(2) {
     top: 369px;
 }
 
-.layout_box:nth-child(3) {
+.layoutBox:nth-child(3) {
     top: 738px;
 }
 
-.layout_box:nth-child(4) {
+.layoutBox:nth-child(4) {
     top: 1107px;
 }
 
-.layout_box:nth-child(5) {
+.layoutBox:nth-child(5) {
     top: 1476px;
 }
 
@@ -365,12 +365,12 @@ text p main {
     color: #f2e9e9;
 }
 
-#name_links {
+#nameLinks {
     position: absolute;
     bottom: 15px;
 }
 
-#side_box1 {
+#sideBox1 {
     position: absolute;
     width: 80px;
     height: 80px;
@@ -379,7 +379,7 @@ text p main {
     background-color: #000000;
 }
 
-#side_box2 {
+#sideBox2 {
     position: absolute;
     width: 80px;
     height: 80px;
@@ -388,7 +388,7 @@ text p main {
     background-color: #FFFFFF;
 }
 
-#side_box3 {
+#sideBox3 {
     position: absolute;
     width: 80px;
     height: 80px;
@@ -402,7 +402,37 @@ text p main {
     user-select: none;
 } */
 
-#layout3_page {
+#score {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    left: 24px;
+    top: 21px;
+    background-color: #000000;
+    display: flex;
+}
+
+header p {
+    display: flex;
+    position: absolute;
+    left: 42px;
+    top: 80px;
+    color: white;
+}
+
+.counter {
+    display: flex;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    font-size: 24px;
+    color: white;
+    justify-content: center;
+    align-items: center;
+
+}
+
+#layout3Page {
     max-width: 100%;
     max-height: 100%;
     margin: 0 auto;
@@ -421,7 +451,7 @@ text p main {
     margin-bottom: 66px;
 }
 
-#red_dot3 {
+#redDot3 {
     display: inline-block;
     position: absolute;
     width: 14px;
@@ -433,7 +463,7 @@ text p main {
     pointer-events: none;
 }
 
-#layout3_side_right {
+#layout3SideRight {
     float: right;
     min-width: 104px;
     min-height: 995px;
@@ -442,7 +472,7 @@ text p main {
     position: relative;
 }
 
-#layout3_box {
+#layout3Box {
     position: absolute;
     width: 80px;
     height: 80px;
@@ -451,7 +481,7 @@ text p main {
     background-color: #000000;
 }
 
-#layout3_side_left {
+#layout3SideLeft {
     float: left;
     min-width: 372px;
     min-height: 995px;
@@ -460,13 +490,13 @@ text p main {
     position: relative;
 }
 
-#layout3_side_left nav {
+#layout3SideLeft nav {
     position: absolute;
     left: 38px;
     top: 123px;
 }
 
-#above_footer {
+#aboveFooter {
     background-color: #EBEF18;
     display: flex;
     width: 100%;
@@ -474,7 +504,7 @@ text p main {
     bottom: 41px;
 }
 
-#footer_layout3 {
+#footerLayout3 {
     background-color: #000000;
     display: flex;
     width: 100%;
@@ -482,7 +512,7 @@ text p main {
     bottom: 0;
 }
 
-#footer_index {
+#footerIndex {
     background-color: #000000;
     width: 100%;
     position: absolute;
@@ -491,7 +521,7 @@ text p main {
     top: 983px;
 }
 
-#footer_layout2 {
+#footerLayout2 {
     background-color: #000000;
     height: 41px;
     position: fixed;
@@ -505,11 +535,11 @@ text p main {
 
 
 @media (max-width: 767px) {
-    #layout3_page{
+    #layout3Page {
         display: block;
     }
 
-    #layout3_side_right {
+    #layout3SideRight {
         display: none;
     }
 
@@ -520,7 +550,7 @@ text p main {
         margin-bottom: 66px;
     }
 
-    #layout3_side_left {
+    #layout3SideLeft {
         min-width: 0px;
         min-height: 0px;
         float: none;
@@ -530,7 +560,7 @@ text p main {
         justify-content: center;
     }
 
-    #layout3_side_left nav {
+    #layout3SideLeft nav {
         position: relative;
         top: 0px;
         left: 0px;
@@ -541,11 +571,11 @@ text p main {
         width: 100%;
     }
 
-    #above_footer {
+    #aboveFooter {
         width: 100%;
     }
 
-    #footer_layout3 {
+    #footerLayout3 {
         width: 100%;
     }
 
