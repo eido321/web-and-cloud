@@ -23,7 +23,7 @@ header {
     justify-content: center;
 }
 
-ul{
+ul {
     display: flex;
     list-style: none;
 }
@@ -361,11 +361,11 @@ text p main {
     height: 533px;
 }
 
-#side a:hover{
+#side a:hover {
     color: #f2e9e9;
 }
 
-#name_links{
+#name_links {
     position: absolute;
     bottom: 15px;
 }
@@ -402,19 +402,23 @@ text p main {
     user-select: none;
 } */
 
-#layout3_page{
+#layout3_page {
     max-width: 100%;
     max-height: 100%;
     margin: 0 auto;
     display: flex;
 }
 
-#wrapper{
+#wrapper {
     max-width: 100%;
     max-height: 100%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    gap: 132px;
+    margin-left: 66px;
+    margin-top: 123px;
+    margin-bottom: 66px;
 }
 
 #red_dot3 {
@@ -500,40 +504,49 @@ text p main {
 
 
 
-@media (max-width: 767px){
+@media (max-width: 767px) {
+    #layout3_page{
+        display: block;
+    }
+
     #layout3_side_right {
         display: none;
     }
 
-    #wrapper{
-        margin-left: 0px;
-        margin-right: 0px;
+    #wrapper {
+        min-height: 1364px;
+        margin-left: 66px;
+        margin-right: 66px;
+        margin-bottom: 66px;
     }
-    
+
     #layout3_side_left {
+        min-width: 0px;
+        min-height: 0px;
         float: none;
-        width:767px;
-        height:105px;
-        margin-bottom: 1364px;
+        width: 100%;
+        height: 105px;
+        position: relative;
+        justify-content: center;
     }
 
     #layout3_side_left nav {
-        position: absolute;
-        left: 302px;
-        top: 45px;
+        position: relative;
+        top: 0px;
+        left: 0px;
     }
 
-    header{
+    header {
         position: relative;
         width: 100%;
     }
 
-    #above_footer{
-        width:767px;
+    #above_footer {
+        width: 100%;
     }
 
-    #footer_layout3{
-        width: 767px;
+    #footer_layout3 {
+        width: 100%;
     }
 
 }

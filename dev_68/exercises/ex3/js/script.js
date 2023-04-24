@@ -1,12 +1,27 @@
 let size = 80
 let delayActive = false;
 let selectedCards = [];
+(() => {
+    let clickBox = $("#layout3_box");
+    clickBox.on("click", () => { boxClick() });
+    window.addEventListener('resize', () => {
+        resizeBox();
+    });
+})();
+console.log($(window).width());
 
 class Box {
     constructor() {
+        let leftWidth = $('#layout3_side_left').width();
+        let rightWitdth = $('#layout3_side_right').width();
+        let pageWidth = $(window).width();
+        let widthWrapper = pageWidth - rightWitdth - leftWidth - 132;
+        if ($(window).width() <= 767)
+            widthWrapper = pageWidth;
         this.width = `${size}px`;
         this.height = `${size}px`;
-        size += 20;
+        if (size < widthWrapper)
+            size += 20;
         console.log("created");
     }
     getWidth() {
@@ -15,16 +30,11 @@ class Box {
     getHeight() {
         return this.height;
     }
+
 }
-
-(() => {
-    let clickBox = document.querySelector('#layout3_box');
-    clickBox.addEventListener("click", () => { boxClick() });
-})();
-
 let match = function () {
     if (selectedCards.length == 2) {
-        let boxes = document.querySelectorAll(".box");
+        let boxes = $(".box");
         for (let i = 0; i < boxes.length; i++) {
             boxes[i].style.pointerEvents = "none";
         }
@@ -51,41 +61,71 @@ let match = function () {
                     boxes[i].style.pointerEvents = "";
                 }
             }, 1000);
-
             delayActive = false;
         }
     }
 };
-
+let randomLetter;
 let boxClick = function () {
     for (let i = 0; i < 3; i++) {
+        let boxes = $(".box");
         let divObj = document.createElement("div");
         divObj.classList.add("box");
         let b = new Box();
         divObj.style.width = b.getWidth();
         divObj.style.height = b.getHeight();
-        divObj.style.backgroundColor = "black";
-        divObj.style.display = "flex";
-        divObj.style.position = "relative";
-        divObj.style.margin = "64px 115px 115px 64px"
-        const randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+        divObj.watched = false;
+        if (boxes.length % 2 == 0)
+            randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
         divObj.innerHTML = `${randomLetter}`;
-        divObj.style.justifyContent = "center";
-        divObj.style.alignItems = "center";
-        divObj.style.fontSize = "64px";
-        divObj.style.userSelect = "none";
-        divObj.addEventListener("dragstart", (event) => {
-            event.preventDefault(); // Prevent dragging
-        }); if (!delayActive) {
+        if (!delayActive) {
             divObj.addEventListener("click", () => {
+                divObj.watched = true;
                 divObj.style.pointerEvents = "none";
                 divObj.style.color = "white";
                 selectedCards.push(divObj);
                 match();
             });
         }
-        let wrapperObj = document.getElementById("wrapper");
-        wrapperObj.appendChild(divObj);
+        let wrapperObj = $("#wrapper");
+        wrapperObj.append(divObj);
+
+    }
+    $('.box').css({
+        "background-color": "black",
+        "display": "flex",
+        "position": "relative",
+        "justify-content": "center",
+        "align-items": "center",
+        "font-size": "64px",
+        "user-select": "none",
+    })
+    let boxes = $(".box");
+    boxes.each(function () {
+        // Get a random box to swap with
+        let randomIndex = Math.floor(Math.random() * boxes.length);
+        let randomBox = boxes.eq(randomIndex);
+      
+        // Swap the inner HTML of the current box with the inner HTML of the random box
+        let temp = $(this).html();
+        $(this).html(randomBox.html());
+        randomBox.html(temp);
+    });
+};
+let resizeBox = function () {
+    let boxes = $(".box");
+    let leftWidth = $('#layout3_side_left').width();
+    let rightWitdth = $('#layout3_side_right').width();
+    let pageWidth = $(window).width();
+    let widthWrapper = pageWidth;
+    console.log(pageWidth);
+    if ($(window).width() > 767)
+        widthWrapper = widthWrapper - leftWidth - rightWitdth - 132;
+    size = 80;
+    for (let i = 0; i < boxes.length; i++) {
+        boxes[i].style.width = `${size}px`;
+        boxes[i].style.height = `${size}px`;
+        if (size < widthWrapper)
+            size += 20;
     }
 };
-
