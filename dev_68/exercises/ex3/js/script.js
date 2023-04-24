@@ -1,12 +1,12 @@
-
-let size = 80;
+let size = 80
 let delayActive = false;
 let selectedCards = [];
+
 class Box {
     constructor() {
         this.width = `${size}px`;
         this.height = `${size}px`;
-        size += 20;               //screen limit 960px
+        size += 20;
         console.log("created");
     }
     getWidth() {
@@ -16,14 +16,15 @@ class Box {
         return this.height;
     }
 }
+
 (() => {
-    let clickBox = $("#layout3_box");
-    clickBox.on("click", () => { boxClick() });
+    let clickBox = document.querySelector('#layout3_box');
+    clickBox.addEventListener("click", () => { boxClick() });
 })();
+
 let match = function () {
     if (selectedCards.length == 2) {
-        //let boxes = document.querySelectorAll(".box");
-        let boxes = $(".box");
+        let boxes = document.querySelectorAll(".box");
         for (let i = 0; i < boxes.length; i++) {
             boxes[i].style.pointerEvents = "none";
         }
@@ -50,45 +51,41 @@ let match = function () {
                     boxes[i].style.pointerEvents = "";
                 }
             }, 1000);
+
             delayActive = false;
         }
     }
 };
+
 let boxClick = function () {
     for (let i = 0; i < 3; i++) {
         let divObj = document.createElement("div");
         divObj.classList.add("box");
         let b = new Box();
         divObj.style.width = b.getWidth();
-        divObj.style.height = b.getHeight();     
-    // divObj.style.backgroundColor = "black";
-    // divObj.style.display = "flex";
-    // divObj.style.position = "relative";
-    // divObj.style.gap = "100";
-    // divObj.style.justifyContent = "center";
-    // divObj.style.alignItems = "center";
-    // divObj.style.fontSize = "64px";
-    // divObj.style.userSelect = "none";
-    const randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
-    divObj.innerHTML = `${randomLetter}`;
-    if (!delayActive) {
-        divObj.addEventListener("click", () => {
-            divObj.style.pointerEvents = "none";
-            divObj.style.color = "white";
-            selectedCards.push(divObj);
-            match();
-        });
+        divObj.style.height = b.getHeight();
+        divObj.style.backgroundColor = "black";
+        divObj.style.display = "flex";
+        divObj.style.position = "relative";
+        divObj.style.margin = "64px 115px 115px 64px"
+        const randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+        divObj.innerHTML = `${randomLetter}`;
+        divObj.style.justifyContent = "center";
+        divObj.style.alignItems = "center";
+        divObj.style.fontSize = "64px";
+        divObj.style.userSelect = "none";
+        divObj.addEventListener("dragstart", (event) => {
+            event.preventDefault(); // Prevent dragging
+        }); if (!delayActive) {
+            divObj.addEventListener("click", () => {
+                divObj.style.pointerEvents = "none";
+                divObj.style.color = "white";
+                selectedCards.push(divObj);
+                match();
+            });
+        }
+        let wrapperObj = document.getElementById("wrapper");
+        wrapperObj.appendChild(divObj);
     }
-    let wrapperObj = $("#wrapper");
-    wrapperObj.append(divObj);
-    $('.box').css({
-        "background-color": "black",
-        "display": "flex",
-        "position": "relative",
-        "justify-content": "center",
-        "align-items": "center",
-        "font-size": "64px",
-        "user-select": "none",
-    })
-}
 };
+
