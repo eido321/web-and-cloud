@@ -15,6 +15,11 @@ section {
 
 @import url('https://fonts.googleapis.com/css2?family=Amiko&display=swap');
 
+body{
+    width:100%;
+}
+  
+
 header {
     width: 100%;
     background-color: #f2e9e9;
@@ -403,18 +408,20 @@ text p main {
 } */
 
 #layout3_page{
-    max-width: 100%;
-    max-height: 100%;
-    margin: 0 auto;
     display: flex;
+    position: relative;
+
 }
 
 #wrapper{
-    max-width: 100%;
-    max-height: 100%;
+    width: 100%;
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
+    gap: 132px; 
+    position: relative;
+    margin-left: 66px;
+
 }
 
 #red_dot3 {
@@ -431,11 +438,12 @@ text p main {
 
 #layout3_side_right {
     float: right;
+    right: 0px;
     min-width: 104px;
     min-height: 995px;
     background-color: #1847EF4D;
     display: flex;
-    position: relative;
+    position: absolute;
 }
 
 #layout3_box {
@@ -454,20 +462,21 @@ text p main {
     background-color: #E5E5E5;
     display: flex;
     position: relative;
+    justify-content: center;
 }
 
 #layout3_side_left nav {
-    position: absolute;
-    left: 38px;
-    top: 123px;
+    display: flex;
+    position: relative;
+    top: 0px;
 }
 
 #above_footer {
     background-color: #EBEF18;
     display: flex;
+    position: relative;
     width: 100%;
     height: 463px;
-    bottom: 41px;
 }
 
 #footer_layout3 {
@@ -501,26 +510,31 @@ text p main {
 
 
 @media (max-width: 767px){
+
+
+    body{
+        width: 100%;
+    }
+
     #layout3_side_right {
         display: none;
     }
 
     #wrapper{
+        display: flex;
+        position: relative;
         margin-left: 0px;
         margin-right: 0px;
     }
     
     #layout3_side_left {
-        float: none;
-        width:767px;
+        min-width: 0px;
+        min-height: 0px;
+        width:100%;
         height:105px;
-        margin-bottom: 1364px;
-    }
-
-    #layout3_side_left nav {
+        display: flex;
         position: absolute;
-        left: 302px;
-        top: 45px;
+        margin-bottom: 1364px;
     }
 
     header{
@@ -529,11 +543,11 @@ text p main {
     }
 
     #above_footer{
-        width:767px;
+        width:100%;
     }
 
     #footer_layout3{
-        width: 767px;
+        width: 100%;
     }
 
 }
