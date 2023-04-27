@@ -14,7 +14,7 @@ class Box {
         let leftWidth = $('#layout3SideLeft').width();
         let rightWitdth = $('#layout3SideRight').width();
         let pageWidth = $(window).width();
-        let widthWrapper = pageWidth - rightWitdth - leftWidth - 132;
+        let widthWrapper = pageWidth - rightWitdth - leftWidth - 132;       //giving the box it's size while makeing sure it can go past the size of the wrapper plus the marging that we need
         if ($(window).width() <= 767)
             widthWrapper = pageWidth;
         this.width = `${size}px`;
@@ -35,13 +35,13 @@ let match = function () {
     if (selectedCards.length == 2) {
         let boxes = $(".box");
         for (let i = 0; i < boxes.length; i++) {
-            boxes[i].style.pointerEvents = "none";
+            boxes[i].style.pointerEvents = "none";              //removing the possibility of a third click happening
         }
         delayActive = true;
         let firstCard = selectedCards[0];
         let secondCard = selectedCards[1];
         secondCard.style.color = "white";
-        if (firstCard.innerHTML == secondCard.innerHTML) {
+        if (firstCard.innerHTML == secondCard.innerHTML) {      //checking for a match in cards
             $('.counter').text(++counter);
             firstCard.style.backgroundColor = "red";
             secondCard.style.backgroundColor = "red";
@@ -50,10 +50,10 @@ let match = function () {
             delayActive = false;
             for (let i = 0; i < boxes.length; i++) {
                 if (boxes[i].style.backgroundColor != "red")
-                    boxes[i].style.pointerEvents = "";
+                    boxes[i].style.pointerEvents = "";              //restoring click functionality 
             }
         } else {
-            setTimeout(() => {
+            setTimeout(() => {                                      //showing the letters for a second 
                 firstCard.style.color = "";
                 secondCard.style.color = "";
                 selectedCards = [];
@@ -86,7 +86,7 @@ let boxClick = function () {
             randomLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
         divObj.innerHTML = `${randomLetter}`;
         if (!delayActive) {
-            $(divObj).on("click", () => {
+            $(divObj).on("click", () => {                   //adding the click possibility on every card
                 $(divObj).data('watched', true);
                 divObj.style.pointerEvents = "none";
                 divObj.style.color = "white";
@@ -99,11 +99,11 @@ let boxClick = function () {
 
     }
     let boxes = $(".box");
-    boxes.each(function () {
-        if ($(this).data('watched') == false) {  // Check if the box has been watched before
+    boxes.each(function () {                            //shuffling the letters in the unwatched cards
+        if ($(this).data('watched') == false) {  
             let randomIndex = Math.floor(Math.random() * boxes.length);
             let randomBox = boxes.eq(randomIndex);
-            if ($(randomBox).data('watched') == false) {  // Check if the random box has been watched before
+            if ($(randomBox).data('watched') == false) {  
                 let temp = $(this).html();
                 $(this).html(randomBox.html());
                 randomBox.html(temp);
@@ -111,9 +111,9 @@ let boxClick = function () {
         }
     });
 };
-let resizeBox = function () {
-    let boxes = $(".box");
-    let leftWidth = $('#layout3SideLeft').width();
+let resizeBox = function () {                               //making sure that you can make any amout of boxes you want
+    let boxes = $(".box");                                  //and the boxes will resize themself with new limit of the
+    let leftWidth = $('#layout3SideLeft').width();          //new wrapper its inside of.
     let rightWitdth = $('#layout3SideRight').width();
     let pageWidth = $(window).width();
     let widthWrapper = pageWidth;
