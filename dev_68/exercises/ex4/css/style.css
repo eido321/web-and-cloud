@@ -239,7 +239,7 @@ canvas {
     background-size: cover;
     color: white;
     font-family: Helvetica, sans-serif;
-
+    display: none;
 }
 
 textarea {

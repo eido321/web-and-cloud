@@ -195,9 +195,12 @@ else document.addEventListener('DOMContentLoaded', init, false);
         let start = document.getElementById('heart');
         start.style.opacity = 0;
         start.style.transition = 'opacity 1s ease-in-out';
-        setTimeout(function() {
+        setTimeout(function () {
             start.style.display = 'none';
         }, 1000);
     }, 2200);
 })();
 
+$(document).ready(function() {
+    $("body").css("display", "block");
+  });
