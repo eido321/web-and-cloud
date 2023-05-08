@@ -1,5 +1,4 @@
 let form = document.querySelector('form');
-
 (() => {
     let checkboxes = document.querySelectorAll('input[name="interests[]"]');
     checkboxes.forEach(function (checkbox) {
@@ -24,7 +23,6 @@ let form = document.querySelector('form');
             }
         });
     });
-
     form.addEventListener('submit', function (event) {
         let count = 0;
         const interests = $('.interests');
@@ -48,9 +46,6 @@ let form = document.querySelector('form');
     });
 
 })()
-
-
-
 let ageSelect = document.querySelector('#age');
 form.addEventListener('submit', function (event) {
     if (ageSelect.value < 23 || ageSelect.value > 38) {
@@ -63,15 +58,12 @@ form.addEventListener('submit', function (event) {
         $('#age-error').hide();
     }
 });
-
-
 $('#phone').on('invalid', function () {
     $('#phone-error').show();
 });
 $('#fullName').on('invalid', function () {
     $('#fullName-error').show();
 });
-
 (() => {
     'use strict'
     const forms = document.querySelectorAll('.needs-validation')
@@ -87,4 +79,3 @@ $('#fullName').on('invalid', function () {
         }, false)
     })
 })()
-
