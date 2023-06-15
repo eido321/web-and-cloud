@@ -102,7 +102,7 @@ footer {
   background-color: #faebd7;
   border-radius: 5px;
   padding: 5px;
-  width: 25%;
+  width: 30%;
 }
 
 .container.rightCon>p {
@@ -147,6 +147,10 @@ footer {
   
   .container.leftCon{
     width: 100%;
+  }
+
+  #categorySelect{
+    width: 50%;
   }
 }
 
