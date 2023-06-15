@@ -34,7 +34,7 @@ function showData(data) {
     document.getElementById("dataServices").appendChild(ulFlag);
 }
 
-fetch("../data/books.json")
+fetch("data/books.json")
     .then(response => response.json())
     .then(data => showData(data));
 

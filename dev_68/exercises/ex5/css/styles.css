@@ -45,6 +45,10 @@ footer {
   background-color: #faebd7;
 }
 
+.row.py-lg-5{
+  width: 100%;
+}
+
 .btn.btn-sm.btn-outline-secondary.backTop {
   background-color: #f8f9fa;
   color: #212529;
@@ -131,6 +135,17 @@ footer {
   }
 
   .container.rightCon {
+    width: 100%;
+  }
+}
+
+@media (max-width: 616px){
+  .container.leftCon{
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+  .container.leftCon{
     width: 100%;
   }
 }
