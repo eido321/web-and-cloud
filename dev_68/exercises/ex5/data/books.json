@@ -1,0 +1,32 @@
+{
+    "categorys": [
+        {
+            "id": "1",
+            "category": "Social Issues"
+        },
+        {
+            "id": "2",
+            "category": "Fiction"
+        },
+        {
+            "id": "3",
+            "category": "Philosophy"
+        },
+        {
+            "id": "4",
+            "category": "Classic"
+        },
+        {
+            "id": "5",
+            "category": "Romance"
+        },
+        {
+            "id": "6",
+            "category": "Historical Fiction"
+        },
+        {
+            "id": "7",
+            "category": "Science Fiction"
+        }
+    ]
+}
