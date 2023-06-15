@@ -44,7 +44,7 @@ $categoryId = $row["category_id"];
 
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
     <link rel="stylesheet" href="css/styles.css">
-    <link href="../assets/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
 
 </head>
 
@@ -159,7 +159,7 @@ $categoryId = $row["category_id"];
             </p>
         </div>
     </footer>
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/getBook.js"></script>
 </body>
 
