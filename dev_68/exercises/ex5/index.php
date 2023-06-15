@@ -120,6 +120,7 @@ if (!$result) {
                 <div id="dataServices"></div>
 
                 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                    <p id="noBook">Sorry we do not have books from this category right now.</p>
                     <?php
                     while ($row = mysqli_fetch_assoc($result)) {
                         $img = $row["front_cover_img"];
@@ -127,11 +128,11 @@ if (!$result) {
                             $img = 'images/default.png';
 
                         echo '
-                            <div class="col">
+                            <div class="col" data-category="'.$row["category_id"].'">
                                 <div class="card shadow-sm">
                                     <img src="' . $img . '" class="default">
                                     <div class="card-body">
-                                        <p class="card-text">' . $row["name"] . '.</p>
+                                        <p class="card-text">' . $row["name"] . '</p>
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
                                             <a href="indexView.php?bookId=' . $row["id"] . '"><button type="button" class="btn btn-sm btn-outline-secondary"><b>View</b></button></a>

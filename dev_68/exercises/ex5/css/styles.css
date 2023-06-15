@@ -120,6 +120,11 @@ footer {
   display: none;
 }
 
+#noBook{
+  display: none;
+  width:50%;
+}
+
 @media (max-width: 1000px) {
   .bd-placeholder-img-lg {
     font-size: 3.5rem;
