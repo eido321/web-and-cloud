@@ -89,7 +89,7 @@ if (!$result) {
             <div class="container">
                 <a href="index.php" class="navbar-brand d-flex align-items-center">
                     <div id="booksIcon"></div>
-                    <strong>&nbspAlbum</strong>
+                    <strong>&nbsp;Album</strong>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader"
                     aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
